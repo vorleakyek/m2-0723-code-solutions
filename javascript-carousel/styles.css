@@ -1,28 +1,26 @@
-.dots {
-  justify-content: center;
+.container {
+  border: 3px solid black;
+  max-width: 900px;
+  padding: 20px 10px;
+}
+
+.flex {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-i {
-  font-size: 36px;
+.sideNav {
+  flex-basis: 10%;
+  padding: 20px 0;
 }
 
-ul {
-  list-style: none;
+.mainContent {
+  flex-basis: 80%;
 }
 
-li {
-  display: block;
-  margin: 3px;
-}
-
-span {
-  display: block;
-}
-
-img {
-  max-width: 100%;
-  max-height: 100%;
+.dotsUl {
+  padding: 0;
 }
 
 .circle {
@@ -36,31 +34,21 @@ img {
   background-color: black;
 }
 
-.container {
-  border: 3px solid black;
-  max-width: 900px;
-  padding: 20px 10px;
+i {
+  font-size: 36px;
 }
 
-.content {
-  display: flex;
+ol {
+  list-style: none;
 }
 
-.mainContent {
-  flex-basis: 80%;
+li,
+span {
+  display: block;
+  margin: 3px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dotsUl {
-  justify-content: space-evenly;
-  padding: 0;
-}
-
-.sideNav {
-  flex-basis: 10%;
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
