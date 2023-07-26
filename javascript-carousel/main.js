@@ -1,7 +1,9 @@
 const img = document.querySelector('img');
+const nextButton = document.querySelector('.forward');
+const previousButton = document.querySelector('.backward');
+const dotsDiv = document.querySelector('.dots');
 let currentIndex = 0;
 let intervalID = 0;
-
 const arrObj = [
   {
     imgSrc: 'images/001.png',
@@ -26,38 +28,30 @@ const arrObj = [
 ];
 
 // *************** auto play ***********************************
-function autoPlay(getUpdatedValue) {
+function autoPlay() {
   intervalID = setInterval(() => {
     // update the currentIndex
     // NOTE: the initial image and filled circle has been set already, so skip to the next index
     currentIndex = currentIndex + 1 <= arrObj.length - 1 ? currentIndex + 1 : 0;
-    getUpdatedValue(currentIndex);
     // show the image and filled circle
     showImgAndFilledCircle();
     // change filled circle to open circle
     showOpenCircles();
+    // clear the previous intertervalID and handle the click event
+    nextButton.addEventListener('click', nextImg);
+    previousButton.addEventListener('click', previousImg);
+    dotsDiv.addEventListener('click', showImg);
   }, 3000);
 }
-
-// ************* Get updated async current index  **********************
-function getUpdatedValue(updatedValue) {
-  return updatedValue;
-}
-autoPlay(getUpdatedValue);
+autoPlay();
 
 // ************ Clicking the previous or the next arrow button *****************
-const nextButton = document.querySelector('.forward');
-const previousButton = document.querySelector('.backward');
-
-nextButton.addEventListener('click', nextImg);
-previousButton.addEventListener('click', previousImg);
-
 function nextImg() {
   clearInterval(intervalID);
   currentIndex = currentIndex + 1 <= arrObj.length - 1 ? currentIndex + 1 : 0;
   showImgAndFilledCircle();
   showOpenCircles();
-  autoPlay(getUpdatedValue);
+  autoPlay();
 }
 
 function previousImg() {
@@ -75,7 +69,7 @@ function previousImg() {
       .querySelector(`#${arrObj[0].dotID}`)
       .setAttribute('class', 'circle');
 
-  autoPlay(getUpdatedValue);
+  autoPlay();
 }
 
 function showImgAndFilledCircle() {
@@ -100,11 +94,8 @@ function showOpenCircles() {
 }
 
 // ************ Clicking the dots *****************
-const dotsDiv = document.querySelector('.dots');
-dotsDiv.addEventListener('click', showImg);
-
 function showImg(event) {
-  if (event.target.tagName !== 'SPAN') {
+  if (event.target.className !== 'circle') {
     return;
   }
   clearInterval(intervalID);
@@ -113,5 +104,5 @@ function showImg(event) {
   const allSpanCircles = document.querySelectorAll('li > span');
   allSpanCircles.forEach((circle) => circle.classList.remove('filled-circle'));
   showImgAndFilledCircle();
-  autoPlay(getUpdatedValue);
+  autoPlay();
 }
