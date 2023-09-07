@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 60px;
+  height: 30px;
+  background-color: green;
+  border-radius: 50px;
+  display: flex;
+  margin-right: 25px;
+  border: 1px solid black;
+}
+
+.on {
+  justify-content: end;
+}
+
+.off {
+  justify-content: start;
+  background-color: gray;
+}
+
+.circle {
+  width: 29px;
+  height: 29px;
+  background-color: white;
+  border-radius: 100%;
+  border: 1px solid black;
+}
