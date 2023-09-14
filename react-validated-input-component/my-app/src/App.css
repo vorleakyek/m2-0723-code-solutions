@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.icon {
+  color: red;
+}
+
+.icon-wrapper {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.message {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.check {
+  color: green;
+}
