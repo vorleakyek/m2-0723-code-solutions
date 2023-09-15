@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.btn {
+  border: 3px solid gray;
+  border-radius: 0;
+  margin: 2px 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: normal;
+}
