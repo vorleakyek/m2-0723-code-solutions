@@ -17,3 +17,7 @@
   font-size: 3rem;
   font-weight: normal;
 }
+
+.active {
+  background-color: lightblue;
+}

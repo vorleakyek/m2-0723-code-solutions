@@ -1,7 +1,7 @@
-export default function Banner() {
+export default function Banner({ item }) {
   return (
     <div>
-      <h2 className="title">Aardvark</h2>
+      <h2 className="title">{item}</h2>
     </div>
   );
 }
