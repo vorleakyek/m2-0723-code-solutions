@@ -1,50 +1,47 @@
 import { useState } from 'react';
-import { FaX } from 'react-icons/fa6';
-import { FaCheck } from 'react-icons/fa6';
+import { FaX, FaCheck } from 'react-icons/fa6';
 
 export default function ValidatedInput() {
-  const [data, setData] = useState({
-    password: '',
-    iconWrapper: '',
-    icon: '',
-    errorMessage: '',
-  });
+  const [password, setPassword] = useState('');
+
+  const feedback = displayMessage(password);
+  const classes = feedback[3];
 
   function handleValidation(e) {
     const { value } = e.target;
+    setPassword(value);
+  }
+
+  function displayMessage(value) {
+    let classes = 'message hidden';
+    let iconWrapper = 'icon-wrapper hidden';
+    let errorMessage = '';
+    let icon = '';
     const regEx = /^(?=.*\d)(?=.*[A-Z])(?=.*\W).+/;
     const passRegExTest = regEx.test(value);
 
     if (value.length === 0) {
-      setData({
-        password: value,
-        errorMessage: 'A password is required.',
-        iconWrapper: 'icon-wrapper',
-        icon: <FaX className="icon" />,
-      });
+      errorMessage = 'A password is required.';
+      iconWrapper = 'icon-wrapper';
+      icon = <FaX className="icon" />;
+      classes = 'message';
     } else if (value.length > 0 && value.length < 8) {
-      setData({
-        password: value,
-        errorMessage: 'Your password is too short.',
-        iconWrapper: 'icon-wrapper',
-        icon: <FaX className="icon" />,
-      });
+      errorMessage = 'Your password is too short.';
+      iconWrapper = 'icon-wrapper';
+      icon = <FaX className="icon" />;
+      classes = 'message';
     } else if (value.length >= 8 && !passRegExTest) {
-      setData({
-        password: value,
-        errorMessage:
-          'Your password should contain a digit, a capital letter, and a special character.',
-        iconWrapper: 'icon-wrapper',
-        icon: <FaX className="icon" />,
-      });
+      errorMessage =
+        'Your password should contain a digit, a capital letter, and a special character.';
+      iconWrapper = 'icon-wrapper';
+      icon = <FaX className="icon" />;
+      classes = 'message';
     } else if (value.length >= 8 && passRegExTest) {
-      setData({
-        password: value,
-        errorMessage: '',
-        iconWrapper: 'icon-wrapper',
-        icon: <FaCheck className="check" />,
-      });
+      icon = <FaCheck className="check" />;
+      classes = 'message';
+      iconWrapper = 'icon-wrapper';
     }
+    return [errorMessage, iconWrapper, icon, classes];
   }
 
   return (
@@ -56,14 +53,14 @@ export default function ValidatedInput() {
           id="password"
           type="password"
           className="form-control"
-          value={data.password}
+          value={password}
           onChange={handleValidation}
           required
         />
-        <div className={data.iconWrapper}>{data.icon}</div>
+        <div className={feedback[1]}>{feedback[2]}</div>
       </div>
       <div>
-        <p className="message">{data.errorMessage}</p>
+        <p className={classes}>{feedback[0]}</p>
       </div>
     </div>
   );

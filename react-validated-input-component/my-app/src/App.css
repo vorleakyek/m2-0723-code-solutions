@@ -24,3 +24,7 @@
 .check {
   color: green;
 }
+
+.hidden {
+  display: none;
+}
