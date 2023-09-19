@@ -1,7 +1,9 @@
-export default function PreviousButton() {
+export default function PreviousButton({ onCustomClick }) {
   return (
     <div>
-      <button className="btn">Prev</button>
+      <button onClick={onCustomClick} className="btn">
+        Prev
+      </button>
     </div>
   );
 }
