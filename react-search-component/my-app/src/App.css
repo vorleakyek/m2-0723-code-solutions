@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content-wrapper {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.search-bar {
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 500px;
+  height: 30px;
+  position: relative;
+}
+
+.search-icon {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.search-input {
+  margin: 0;
+  position: absolute;
+  top: 6px;
+  width: 450px;
+  border: none;
+  font-size: 16px;
+  color: gray;
+}
+
+.search-input:focus {
+  outline: none;
+}
