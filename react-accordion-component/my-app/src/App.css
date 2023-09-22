@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: black;
+}
+
+.header {
+  background-color: #ddd;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 0.1rem solid black;
+  width: 500px;
+}
+
+.content {
+  border: 0.1rem solid black;
+  padding: 0.5rem;
+  width: 500px;
+}
