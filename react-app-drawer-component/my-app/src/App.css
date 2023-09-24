@@ -1,0 +1,64 @@
+#root {
+  max-width: 1280px;
+  color: black;
+}
+
+.menu-heading {
+  margin: 0;
+}
+
+.items-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  list-style: none;
+}
+
+.menu-icon {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.menu-panel {
+  padding: 10px;
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+.close {
+  transform: translateX(-285px);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.dim {
+  opacity: 0.5;
+  pointer-events: all;
+}
+
+.light {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
