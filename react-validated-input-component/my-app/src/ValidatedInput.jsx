@@ -5,7 +5,7 @@ export default function ValidatedInput() {
   const [password, setPassword] = useState('');
 
   const feedback = displayMessage(password);
-  const classes = feedback[3];
+  const classes = feedback.classes;
 
   function handleValidation(e) {
     const { value } = e.target;
@@ -41,7 +41,12 @@ export default function ValidatedInput() {
       classes = 'message';
       iconWrapper = 'icon-wrapper';
     }
-    return [errorMessage, iconWrapper, icon, classes];
+    return {
+      errorMessage: errorMessage,
+      iconWrapper: iconWrapper,
+      icon: icon,
+      classes: classes,
+    };
   }
 
   return (
@@ -57,10 +62,10 @@ export default function ValidatedInput() {
           onChange={handleValidation}
           required
         />
-        <div className={feedback[1]}>{feedback[2]}</div>
+        <div className={feedback.iconWrapper}>{feedback.icon}</div>
       </div>
       <div>
-        <p className={classes}>{feedback[0]}</p>
+        <p className={classes}>{feedback.errorMessage}</p>
       </div>
     </div>
   );
