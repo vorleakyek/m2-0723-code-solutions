@@ -6,7 +6,7 @@ export default function Indicators({ count, currentIndex, onCustomClick }) {
 
   const buttons = labels.map((label, index) => (
     <button
-      key={index}
+      key={label}
       className={index === currentIndex ? 'btn active' : 'btn'}
       onClick={() => onCustomClick(index)}>
       {label}
