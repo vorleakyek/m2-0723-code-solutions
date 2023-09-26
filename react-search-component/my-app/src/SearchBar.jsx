@@ -2,8 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 
 export default function SearchBar({ onCustomChange, input }) {
   function handleChange(e) {
-    const { value } = e.target;
-    onCustomChange(value);
+    onCustomChange(e.target.value);
   }
 
   return (

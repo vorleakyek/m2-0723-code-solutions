@@ -5,13 +5,14 @@ import { useState } from 'react';
 export default function SearchableList({ items }) {
   const [search, setSearch] = useState('');
 
-  function searchInput(text) {
-    setSearch(text);
-  }
-
   return (
     <div className="content-wrapper">
-      <SearchBar onCustomChange={searchInput} input={search} />
+      <SearchBar
+        onCustomChange={(text) => {
+          setSearch(text);
+        }}
+        input={search}
+      />
       <SearchResult items={items} keywords={search} />
     </div>
   );
