@@ -14,7 +14,7 @@ export default function Accordion({ topics }) {
   }
 
   const items = topics.map((topic, index) => (
-    <div key={index}>
+    <div key={topic.id}>
       <Header header={topic.header} onShow={() => toggleContent(index)} />
       <Content content={topic.description} isActive={activeIndex === index} />
     </div>
