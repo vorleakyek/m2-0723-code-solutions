@@ -13,16 +13,16 @@ export default function SearchResult({ items, keywords }) {
   const listResult = returnList();
 
   function returnList() {
-    let result = null;
+    let result = <ul>{resultDisplay}</ul>;
+
     if (keywords === '') {
       result = <ul>{defaultDisplay}</ul>;
-    } else {
-      if (itemFiltered.length === 0) {
-        result = <p>{noMatchDisplay}</p>;
-      } else {
-        result = <ul>{resultDisplay}</ul>;
-      }
     }
+
+    if (itemFiltered.length === 0) {
+      result = <p>{noMatchDisplay}</p>;
+    }
+
     return result;
   }
 
