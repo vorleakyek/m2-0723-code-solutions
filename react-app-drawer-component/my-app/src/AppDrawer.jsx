@@ -5,7 +5,7 @@ export default function AppDrawer({ heading, items }) {
   const [isActive, setIsActive] = useState(false);
 
   function toggleIsActive() {
-    isActive ? setIsActive(false) : setIsActive(true);
+    setIsActive(!isActive);
   }
 
   return (
